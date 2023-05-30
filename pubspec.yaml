@@ -1,10 +1,10 @@
 name: big_bird
-description: A new Flutter plugin project.
+description: Библиотека для работы с документами
 version: 0.0.1
-homepage:
+homepage: https://github.com/Lonti6/big_bird
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: '>=2.19.2 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:

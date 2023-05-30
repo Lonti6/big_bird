@@ -10,6 +10,11 @@ class MockBigBirdPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future printData(data) {
+    throw UnimplementedError();
+  }
 }
 
 void main() {

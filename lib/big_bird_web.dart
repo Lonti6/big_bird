@@ -26,7 +26,9 @@ class BigBirdWeb extends BigBirdPlatform {
     final id = 'iframe-${DateTime.now().millisecondsSinceEpoch}';
 
     final iframe = IFrameElement()
-      ..id = id;
+      ..id = id
+      ..style.display = "none"
+    ;
 
     final blob = Blob([data], 'application/pdf');
     final url = Url.createObjectUrlFromBlob(blob);
@@ -39,11 +41,10 @@ class BigBirdWeb extends BigBirdPlatform {
     contentWindow.callMethod('eval', ['window.print();']);
 
     //TODO нужно будет сделать удаление iframe
-
-/*    contentWindow.callMethod('setTimeout', [
+    contentWindow.callMethod('setTimeout', [
           () => iframe.remove(),
-      1000,
-    ]);*/
+      1000 * 60 * 5,
+    ]);
 
   }
 }
