@@ -5,9 +5,9 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 import 'big_bird_platform_interface.dart';
 
-/// A web implementation of the BigBirdPlatform of the BigBird plugin.
+
 class BigBirdWeb extends BigBirdPlatform {
-  /// Constructs a BigBirdWeb
+
   BigBirdWeb();
 
   static void registerWith(Registrar registrar) {
@@ -26,8 +26,7 @@ class BigBirdWeb extends BigBirdPlatform {
     final id = 'iframe-${DateTime.now().millisecondsSinceEpoch}';
 
     final iframe = IFrameElement()
-      ..id = id
-      ..style.visibility = 'hidden';
+      ..id = id;
 
     final blob = Blob([data], 'application/pdf');
     final url = Url.createObjectUrlFromBlob(blob);
@@ -39,10 +38,12 @@ class BigBirdWeb extends BigBirdPlatform {
 
     contentWindow.callMethod('eval', ['window.print();']);
 
-    contentWindow.callMethod('setTimeout', [
+    //TODO нужно будет сделать удаление iframe
+
+/*    contentWindow.callMethod('setTimeout', [
           () => iframe.remove(),
       1000,
-    ]);
+    ]);*/
 
   }
 }
