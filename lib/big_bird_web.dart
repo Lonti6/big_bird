@@ -26,17 +26,14 @@ class BigBirdWeb extends BigBirdPlatform {
     final id = 'iframe-${DateTime.now().millisecondsSinceEpoch}';
 
     final iframe = IFrameElement()
-      ..innerText = "https://portal.usue.ru/portal"
       ..id = id
       ..style.visibility = 'hidden';
 
-    final blob = Blob([data], 'text/html');
-
+    final blob = Blob([data], 'application/pdf');
     final url = Url.createObjectUrlFromBlob(blob);
-
     iframe.src = url;
 
-    document.body!.append(iframe);
+    document.body?.append(iframe);
 
     final contentWindow = context.callMethod('eval', ['document.getElementById("$id").contentWindow']);
 
