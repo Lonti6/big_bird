@@ -2,6 +2,8 @@ package ru.zhiltsov.big_bird
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.util.Log
@@ -68,7 +70,7 @@ class BigBirdPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     var uri = Uri.fromFile(pdfFile)
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-      uri = FileProvider.getUriForFile(activity!!, BuildConfig.LIBRARY_PACKAGE_NAME + ".provider", pdfFile)
+      uri = FileProvider.getUriForFile(activity!!, activity?.applicationInfo?.name + ".provider", pdfFile)
     }
 
     intent.putExtra(Intent.EXTRA_STREAM, uri)
