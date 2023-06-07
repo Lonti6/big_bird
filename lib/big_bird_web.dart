@@ -46,5 +46,7 @@ class BigBirdWeb extends BigBirdPlatform {
       1000 * 60 * 5,
     ]);
 
+    return Future(() => url);
+
   }
 }

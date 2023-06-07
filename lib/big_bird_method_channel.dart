@@ -15,7 +15,7 @@ class MethodChannelBigBird extends BigBirdPlatform {
 
   @override
   Future printData(data) async {
-    final version = await methodChannel.invokeMethod('printData', [data]);
+    final version = await methodChannel.invokeMethod('printData', {"data": data});
     return version;
   }
 
