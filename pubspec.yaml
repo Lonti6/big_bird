@@ -1,6 +1,6 @@
 name: big_bird
 description: Библиотека для работы с документами
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/Lonti6/big_bird
 
 environment:
