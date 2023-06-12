@@ -70,7 +70,7 @@ class BigBirdPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     var uri = Uri.fromFile(pdfFile)
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-      uri = FileProvider.getUriForFile(activity!!, activity?.applicationInfo?.name + ".provider", pdfFile)
+      uri = FileProvider.getUriForFile(activity!!, activity?.applicationInfo?.packageName + ".provider", pdfFile)
     }
 
     intent.putExtra(Intent.EXTRA_STREAM, uri)
